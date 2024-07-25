@@ -3,6 +3,10 @@ id: anglerfish
 name: Anglerfish
 type: shield
 url: https://github.com/vinniefranco/anglerfish-splitk-keeb
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
 requires: [pro_micro]
 exposes: [i2c_oled]
 features:
