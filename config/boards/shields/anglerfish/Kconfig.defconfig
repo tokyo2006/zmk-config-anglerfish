@@ -1,10 +1,10 @@
 if SHIELD_ANGLERFISH_LEFT
 
-    config ZMK_KEYBOARD_NAME
-        default "Anglerfish"
+config ZMK_KEYBOARD_NAME
+    default "Anglerfish"
 
-    config ZMK_SPLIT_BLE_ROLE_CENTRAL
-        default y
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default y
 
 endif # LEFT
 
@@ -12,50 +12,52 @@ endif # LEFT
 
 if SHIELD_ANGLERFISH_LEFT || SHIELD_ANGLERFISH_RIGHT
 
-    config ZMK_SPLIT
-        default y
+config ZMK_SPLIT
+    default y
 
-
-    config ZMK_DISPLAY
-        select LV_USE_CONT
-        select LV_FONT_MONTSERRAT_26
-        select LV_FONT_MONTSERRAT_16
-        select LV_USE_LABEL
-        select LV_USE_IMG
+config ZMK_DISPLAY
+    select LV_USE_CONT
+    select LV_FONT_MONTSERRAT_26
+    select LV_FONT_MONTSERRAT_16
+    select LV_USE_LABEL
+    select LV_USE_IMG
     
-    choice ZMK_DISPLAY_STATUS_SCREEN
-        default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
-    endchoice
+choice ZMK_DISPLAY_STATUS_SCREEN
+    default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
+endchoice
     
-    if ZMK_DISPLAY
+if ZMK_DISPLAY
     
-    config SPI
-        default y
+config SPI
+    default y
     
-    config IL0323
-        default y
+config IL0323
+    default y
     
-    config ZMK_DISPLAY_BLANK_ON_IDLE
-        default n
+config ZMK_DISPLAY_BLANK_ON_IDLE
+    default n
     # Needed for the IL0323 driver which allocs memory to clear the display
-    config HEAP_MEM_POOL_SIZE
-        default 1024
+config HEAP_MEM_POOL_SIZE
+    default 1024
     
-     config LV_Z_MEM_POOL_SIZE
-         default 4096
+config LV_Z_MEM_POOL_SIZE
+    default 4096
+
+endif # ZMK_DISPLAY
     
-    endif # ZMK_DISPLAY
+menuconfig CUSTOM_WIDGET_BATTERY_STATUS
+    bool "custom battery status widget"
     
-    menuconfig CUSTOM_WIDGET_BATTERY_STATUS
-        bool "custom battery status widget"
+menuconfig CUSTOM_WIDGET_OUTPUT_STATUS
+    bool "custom output status widget"
     
-    menuconfig CUSTOM_WIDGET_OUTPUT_STATUS
-        bool "custom output status widget"
+menuconfig CUSTOM_WIDGET_LAYER_STATUS
+    bool "custom layer status widget"
     
-    menuconfig CUSTOM_WIDGET_LAYER_STATUS
-        bool "custom layer status widget"
-    
-    menuconfig CUSTOM_WIDGET_PERIPHERAL_STATUS
-        bool "custom peripheral status widget"
+menuconfig CUSTOM_WIDGET_PERIPHERAL_STATUS
+    bool "custom peripheral status widget"
+
+config BQ274XX
+    default y
 
 endif # LEFT RIGHT
