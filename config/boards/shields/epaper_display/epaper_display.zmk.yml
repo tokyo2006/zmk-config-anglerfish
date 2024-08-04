@@ -1,0 +1,23 @@
+file_format: "1"
+id: epaper_display
+name: epaper_display
+type: shield
+url: jixiejianpan.taobao.com
+requires: [epaper_display_header]
+features:
+  - display
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 40
+supported:
+  - adc
+  - usb_device
+  - ble
+  - ieee802154
+  - pwm
+  - watchdog
+  - gpio
+  - i2c
+  - spi
